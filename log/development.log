@@ -1492,3 +1492,25 @@ Did you mean?  @artist):
   
 app/views/artists/show.html.erb:4:in `block in _app_views_artists_show_html_erb___2091831629049418622_69822063585180'
 app/views/artists/show.html.erb:3:in `_app_views_artists_show_html_erb___2091831629049418622_69822063585180'
+Started GET "/artists/1" for 176.207.203.58 at 2019-06-28 10:51:03 +0000
+Cannot render console from 176.207.203.58! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ArtistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering artists/show.html.erb within layouts/application
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."artist_id" = ?[0m  [["artist_id", 1]]
+  Rendered artists/show.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"songs", :id=>"1"}, missing required keys: [:artist_id]):
+    1: <h1><%= @artist.name %></h1>
+    2: <ul>
+    3:   <% @artist.songs.each do |song| %>
+    4:     <li><%= link_to song.title, artist_song_path %></li>
+    5:   <% end %>
+    6: </ul>
+  
+app/views/artists/show.html.erb:4:in `block in _app_views_artists_show_html_erb___2091831629049418622_69822052837120'
+app/views/artists/show.html.erb:3:in `_app_views_artists_show_html_erb___2091831629049418622_69822052837120'
