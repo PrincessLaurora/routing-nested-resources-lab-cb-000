@@ -751,3 +751,14 @@ NameError (undefined local variable or method `artists_path' for #<SongsControll
 Did you mean?  artist_path):
   
 app/controllers/songs_controller.rb:9:in `index'
+Started GET "/" for 176.207.203.58 at 2019-06-28 09:25:51 +0000
+Cannot render console from 176.207.203.58! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#index as HTML
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `artists_path' for #<SongsController:0x00007f3c484b1118>
+Did you mean?  artist_path):
+  
+app/controllers/songs_controller.rb:9:in `index'
