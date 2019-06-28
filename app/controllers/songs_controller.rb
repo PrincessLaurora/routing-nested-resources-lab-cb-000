@@ -8,8 +8,6 @@ class SongsController < ApplicationController
     else @artist.nil?
         @songs = Song.all
         redirect_to @songs, alert: "Artist not found."
-        
-
     end
   end
 
