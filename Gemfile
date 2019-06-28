@@ -5,7 +5,6 @@ gem 'sqlite3'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'jbuilder'
-gem 'rack-flash3'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
