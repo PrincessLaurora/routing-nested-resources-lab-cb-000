@@ -1076,3 +1076,12 @@ Processing by ArtistsController#show as HTML
 Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/artists" for 176.207.203.58 at 2019-06-28 09:53:23 +0000
+Cannot render console from 176.207.203.58! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ArtistsController#index as HTML
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  Rendered artists/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 18ms (Views: 13.4ms | ActiveRecord: 1.3ms)
+
+
