@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :artists do
       # nested resource for posts
-      resources :songs, only: [:show, :index]
+      resources :songs, only: [:index, v]
     end
 
     resources :songs
