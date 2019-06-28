@@ -681,3 +681,33 @@ true by adding the following to your application.rb file:
   [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-06-28 08:20:46.426984"], ["updated_at", "2019-06-28 08:20:46.426984"]]
   [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /usr/local/rvm/gems/ruby-2.6.1/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for 176.207.203.58 at 2019-06-28 09:23:32 +0000
+Cannot render console from 176.207.203.58! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" LIMIT ?[0m  [["LIMIT", 11]]
+Redirected to 
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 1.0ms)
+
+
+  
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" LIMIT ?[0m  [["LIMIT", 11]]
+NoMethodError (undefined method `to_model' for #<Song::ActiveRecord_Relation:0x0000000002123098>
+Did you mean?  to_xml):
+  
+app/controllers/songs_controller.rb:10:in `index'
