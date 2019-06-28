@@ -1230,3 +1230,56 @@ Processing by SongsController#index as HTML
 Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/artists/1/songs" for 176.207.203.58 at 2019-06-28 10:00:22 +0000
+Cannot render console from 176.207.203.58! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#index as HTML
+  Parameters: {"artist_id"=>"1"}
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."artist_id" = ?[0m  [["artist_id", 1]]
+  Rendered songs/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/artists" for 176.207.203.58 at 2019-06-28 10:00:55 +0000
+Cannot render console from 176.207.203.58! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ArtistsController#index as HTML
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  Rendered artists/index.html.erb within layouts/application (6.8ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `song' for #<Artist:0x00007f711e04fb00>
+Did you mean?  songs):
+    1: <h1>Artists</h1>
+    2: <ul>
+    3:   <% @artists.each do |artist| %>
+    4:     <li><%= link_to artist.name, artist_songs_path(artist.song) %></li>
+    5:   <% end %>
+    6: </ul>
+  
+app/views/artists/index.html.erb:4:in `block in _app_views_artists_index_html_erb___2536623956183835659_70061905811080'
+app/views/artists/index.html.erb:3:in `_app_views_artists_index_html_erb___2536623956183835659_70061905811080'
+Started GET "/artists" for 176.207.203.58 at 2019-06-28 10:00:58 +0000
+Cannot render console from 176.207.203.58! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ArtistsController#index as HTML
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  Rendered artists/index.html.erb within layouts/application (8.2ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `song' for #<Artist:0x00007f711e82dcc8>
+Did you mean?  songs):
+    1: <h1>Artists</h1>
+    2: <ul>
+    3:   <% @artists.each do |artist| %>
+    4:     <li><%= link_to artist.name, artist_songs_path(artist.song) %></li>
+    5:   <% end %>
+    6: </ul>
+  
+app/views/artists/index.html.erb:4:in `block in _app_views_artists_index_html_erb___2536623956183835659_70061909944000'
+app/views/artists/index.html.erb:3:in `_app_views_artists_index_html_erb___2536623956183835659_70061909944000'
